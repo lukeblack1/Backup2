@@ -5,7 +5,7 @@ import jade.core.ProfileImpl;
 import jade.core.Runtime;
 import jade.wrapper.AgentController;
 import jade.wrapper.ContainerController;
-
+import set10111.simulation.AdvertiserAgent;
 import examples.behaviours.ComplexBehaviourAgent;
 
 public class Application {
@@ -30,6 +30,10 @@ public class Application {
 
 
 			//Now start our own BookBuyerAgent, called buyer.
+			
+			AgentController myAgentAdvertiser = myContainer.createNewAgent("AdvertiserAgent",
+					AdvertiserAgent.class.getCanonicalName(), null);
+			myAgentAdvertiser.start();
 
 			AgentController myAgentSeller = myContainer.createNewAgent("sellerA",
 					BookSellerAgent.class.getCanonicalName(), null);
@@ -53,6 +57,7 @@ public class Application {
 			AgentController myAgentSeller5 = myContainer.createNewAgent("sellerE",
 					BookSellerAgent.class.getCanonicalName(), null);
 			myAgentSeller5.start();
+			
 			
 			
 			
